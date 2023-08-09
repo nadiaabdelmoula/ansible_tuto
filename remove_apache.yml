@@ -1,0 +1,15 @@
+---
+
+- hosts: all
+  become: true  #sudo
+  tasks:
+
+  - name: install apache2 package  #name/desc of the task
+    apt:    #module to run
+      name: apache2   #install the apache2 package
+      state: absent
+      
+  - name: add php support for apache
+    apt:
+      name: libapache2-mod-php
+      state: absent
